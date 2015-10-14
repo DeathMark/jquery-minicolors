@@ -172,11 +172,7 @@
         }
 
         // Input size
-        if( format === 'rgb' ) {
-            $input_size = opacity ? '25' : '20';
-        } else {
-            $input_size = keywords ? '11' : '7';
-        }
+        $input_size = opacity ? '25' : '20';
 
         // The input
         input
@@ -477,7 +473,7 @@
             if( settings.opacity ) input.attr('data-opacity', opacity);
 
             // Set color string
-            if( format === 'rgb' ) {
+            if( format === 'rgb' || (input.minicolors('rgbObject').a < 1 && settings.opacity) ) {
                 // Returns RGB(A) string
                 var rgb = hex2rgb(hex),
                     opacity = input.attr('data-opacity') === '' ? 1 : keepWithin( parseFloat( input.attr('data-opacity') ).toFixed(2), 0, 1 );
