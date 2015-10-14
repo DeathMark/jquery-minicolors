@@ -973,7 +973,7 @@
                 // Convert to format
                 if( rgba === null ) {
                     value = settings.defaultValue;
-                } else if( settings.format === 'rgb' ) {
+                } else if( settings.format === 'rgb' || rgba.a < 1 ) {
                     value = settings.opacity ?
                         parseRgb('rgba(' + rgba.r + ',' + rgba.g + ',' + rgba.b + ',' + input.attr('data-opacity') + ')') :
                         parseRgb('rgb(' + rgba.r + ',' + rgba.g + ',' + rgba.b + ')');
